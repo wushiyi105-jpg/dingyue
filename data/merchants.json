@@ -1,0 +1,1172 @@
+{
+ "note": "商户名与别名用于归一;typical_price 仅作未写金额时的参考,不参与你账单的实算。",
+ "merchants": [
+  {
+   "name": "爱奇艺",
+   "aliases": [
+    "iqiyi",
+    "奇艺"
+   ],
+   "category": "视频",
+   "cycle": "月",
+   "typical_price": 15,
+   "cancel": "App 内「我的-会员-自动续费管理」关闭,或支付渠道的自动扣款里解约",
+   "refund": "首次购买 7 天内且未使用可退,连续包月扣费后一般不退"
+  },
+  {
+   "name": "腾讯视频",
+   "aliases": [
+    "tencent video",
+    "企鹅影院"
+   ],
+   "category": "视频",
+   "cycle": "月",
+   "typical_price": 25,
+   "cancel": "App 内「我的-会员-自动续费管理」关闭,或支付渠道的自动扣款里解约",
+   "refund": "首次购买 7 天内且未使用可退,连续包月扣费后一般不退"
+  },
+  {
+   "name": "优酷",
+   "aliases": [
+    "youku",
+    "合一"
+   ],
+   "category": "视频",
+   "cycle": "月",
+   "typical_price": 30,
+   "cancel": "App 内「我的-会员-自动续费管理」关闭,或支付渠道的自动扣款里解约",
+   "refund": "首次购买 7 天内且未使用可退,连续包月扣费后一般不退"
+  },
+  {
+   "name": "芒果TV",
+   "aliases": [
+    "mgtv",
+    "芒果tv"
+   ],
+   "category": "视频",
+   "cycle": "月",
+   "typical_price": 45,
+   "cancel": "App 内「我的-会员-自动续费管理」关闭,或支付渠道的自动扣款里解约",
+   "refund": "首次购买 7 天内且未使用可退,连续包月扣费后一般不退"
+  },
+  {
+   "name": "哔哩哔哩大会员",
+   "aliases": [
+    "bilibili",
+    "b站大会员"
+   ],
+   "category": "视频",
+   "cycle": "月",
+   "typical_price": 68,
+   "cancel": "App 内「我的-会员-自动续费管理」关闭,或支付渠道的自动扣款里解约",
+   "refund": "首次购买 7 天内且未使用可退,连续包月扣费后一般不退"
+  },
+  {
+   "name": "Netflix",
+   "aliases": [
+    "奈飞"
+   ],
+   "category": "视频",
+   "cycle": "月",
+   "typical_price": 88,
+   "cancel": "App 内「我的-会员-自动续费管理」关闭,或支付渠道的自动扣款里解约",
+   "refund": "首次购买 7 天内且未使用可退,连续包月扣费后一般不退"
+  },
+  {
+   "name": "Disney+",
+   "aliases": [],
+   "category": "视频",
+   "cycle": "月",
+   "typical_price": 108,
+   "cancel": "App 内「我的-会员-自动续费管理」关闭,或支付渠道的自动扣款里解约",
+   "refund": "首次购买 7 天内且未使用可退,连续包月扣费后一般不退"
+  },
+  {
+   "name": "HBO Max",
+   "aliases": [],
+   "category": "视频",
+   "cycle": "月",
+   "typical_price": 128,
+   "cancel": "App 内「我的-会员-自动续费管理」关闭,或支付渠道的自动扣款里解约",
+   "refund": "首次购买 7 天内且未使用可退,连续包月扣费后一般不退"
+  },
+  {
+   "name": "Apple TV+",
+   "aliases": [],
+   "category": "视频",
+   "cycle": "月",
+   "typical_price": 168,
+   "cancel": "App 内「我的-会员-自动续费管理」关闭,或支付渠道的自动扣款里解约",
+   "refund": "首次购买 7 天内且未使用可退,连续包月扣费后一般不退"
+  },
+  {
+   "name": "Amazon Prime Video",
+   "aliases": [],
+   "category": "视频",
+   "cycle": "月",
+   "typical_price": 198,
+   "cancel": "App 内「我的-会员-自动续费管理」关闭,或支付渠道的自动扣款里解约",
+   "refund": "首次购买 7 天内且未使用可退,连续包月扣费后一般不退"
+  },
+  {
+   "name": "搜狐视频",
+   "aliases": [],
+   "category": "视频",
+   "cycle": "月",
+   "typical_price": 248,
+   "cancel": "App 内「我的-会员-自动续费管理」关闭,或支付渠道的自动扣款里解约",
+   "refund": "首次购买 7 天内且未使用可退,连续包月扣费后一般不退"
+  },
+  {
+   "name": "咪咕视频",
+   "aliases": [],
+   "category": "视频",
+   "cycle": "月",
+   "typical_price": 298,
+   "cancel": "App 内「我的-会员-自动续费管理」关闭,或支付渠道的自动扣款里解约",
+   "refund": "首次购买 7 天内且未使用可退,连续包月扣费后一般不退"
+  },
+  {
+   "name": "QQ音乐",
+   "aliases": [
+    "qqmusic",
+    "qq 音乐"
+   ],
+   "category": "音乐",
+   "cycle": "月",
+   "typical_price": 15,
+   "cancel": "App 内「会员中心-管理自动续费」关闭;苹果订阅在系统设置里退订",
+   "refund": "7 天内未使用可退,苹果渠道按苹果规则"
+  },
+  {
+   "name": "网易云音乐",
+   "aliases": [
+    "netmusic",
+    "网易云"
+   ],
+   "category": "音乐",
+   "cycle": "月",
+   "typical_price": 25,
+   "cancel": "App 内「会员中心-管理自动续费」关闭;苹果订阅在系统设置里退订",
+   "refund": "7 天内未使用可退,苹果渠道按苹果规则"
+  },
+  {
+   "name": "酷狗音乐",
+   "aliases": [],
+   "category": "音乐",
+   "cycle": "月",
+   "typical_price": 30,
+   "cancel": "App 内「会员中心-管理自动续费」关闭;苹果订阅在系统设置里退订",
+   "refund": "7 天内未使用可退,苹果渠道按苹果规则"
+  },
+  {
+   "name": "酷我音乐",
+   "aliases": [],
+   "category": "音乐",
+   "cycle": "月",
+   "typical_price": 45,
+   "cancel": "App 内「会员中心-管理自动续费」关闭;苹果订阅在系统设置里退订",
+   "refund": "7 天内未使用可退,苹果渠道按苹果规则"
+  },
+  {
+   "name": "Spotify",
+   "aliases": [
+    "声田"
+   ],
+   "category": "音乐",
+   "cycle": "月",
+   "typical_price": 68,
+   "cancel": "App 内「会员中心-管理自动续费」关闭;苹果订阅在系统设置里退订",
+   "refund": "7 天内未使用可退,苹果渠道按苹果规则"
+  },
+  {
+   "name": "Apple Music",
+   "aliases": [],
+   "category": "音乐",
+   "cycle": "月",
+   "typical_price": 88,
+   "cancel": "App 内「会员中心-管理自动续费」关闭;苹果订阅在系统设置里退订",
+   "refund": "7 天内未使用可退,苹果渠道按苹果规则"
+  },
+  {
+   "name": "YouTube Music",
+   "aliases": [],
+   "category": "音乐",
+   "cycle": "月",
+   "typical_price": 108,
+   "cancel": "App 内「会员中心-管理自动续费」关闭;苹果订阅在系统设置里退订",
+   "refund": "7 天内未使用可退,苹果渠道按苹果规则"
+  },
+  {
+   "name": "Tidal",
+   "aliases": [],
+   "category": "音乐",
+   "cycle": "月",
+   "typical_price": 128,
+   "cancel": "App 内「会员中心-管理自动续费」关闭;苹果订阅在系统设置里退订",
+   "refund": "7 天内未使用可退,苹果渠道按苹果规则"
+  },
+  {
+   "name": "Deezer",
+   "aliases": [],
+   "category": "音乐",
+   "cycle": "月",
+   "typical_price": 168,
+   "cancel": "App 内「会员中心-管理自动续费」关闭;苹果订阅在系统设置里退订",
+   "refund": "7 天内未使用可退,苹果渠道按苹果规则"
+  },
+  {
+   "name": "喜马拉雅",
+   "aliases": [],
+   "category": "音乐",
+   "cycle": "月",
+   "typical_price": 198,
+   "cancel": "App 内「会员中心-管理自动续费」关闭;苹果订阅在系统设置里退订",
+   "refund": "7 天内未使用可退,苹果渠道按苹果规则"
+  },
+  {
+   "name": "蜻蜓FM",
+   "aliases": [],
+   "category": "音乐",
+   "cycle": "月",
+   "typical_price": 248,
+   "cancel": "App 内「会员中心-管理自动续费」关闭;苹果订阅在系统设置里退订",
+   "refund": "7 天内未使用可退,苹果渠道按苹果规则"
+  },
+  {
+   "name": "番茄畅听",
+   "aliases": [],
+   "category": "音乐",
+   "cycle": "月",
+   "typical_price": 298,
+   "cancel": "App 内「会员中心-管理自动续费」关闭;苹果订阅在系统设置里退订",
+   "refund": "7 天内未使用可退,苹果渠道按苹果规则"
+  },
+  {
+   "name": "百度网盘",
+   "aliases": [
+    "baidu netdisk",
+    "百度云"
+   ],
+   "category": "云存储",
+   "cycle": "月",
+   "typical_price": 15,
+   "cancel": "网盘设置里的「自动续费」关闭;连续包月需在到期前 24 小时操作",
+   "refund": "5 天内未使用可退,已扩容部分不退"
+  },
+  {
+   "name": "阿里云盘",
+   "aliases": [
+    "aliyundrive",
+    "阿里云"
+   ],
+   "category": "云存储",
+   "cycle": "月",
+   "typical_price": 25,
+   "cancel": "网盘设置里的「自动续费」关闭;连续包月需在到期前 24 小时操作",
+   "refund": "5 天内未使用可退,已扩容部分不退"
+  },
+  {
+   "name": "腾讯微云",
+   "aliases": [],
+   "category": "云存储",
+   "cycle": "月",
+   "typical_price": 30,
+   "cancel": "网盘设置里的「自动续费」关闭;连续包月需在到期前 24 小时操作",
+   "refund": "5 天内未使用可退,已扩容部分不退"
+  },
+  {
+   "name": "iCloud+",
+   "aliases": [
+    "icloud",
+    "苹果云"
+   ],
+   "category": "云存储",
+   "cycle": "月",
+   "typical_price": 45,
+   "cancel": "网盘设置里的「自动续费」关闭;连续包月需在到期前 24 小时操作",
+   "refund": "5 天内未使用可退,已扩容部分不退"
+  },
+  {
+   "name": "Google One",
+   "aliases": [
+    "谷歌云盘"
+   ],
+   "category": "云存储",
+   "cycle": "月",
+   "typical_price": 68,
+   "cancel": "网盘设置里的「自动续费」关闭;连续包月需在到期前 24 小时操作",
+   "refund": "5 天内未使用可退,已扩容部分不退"
+  },
+  {
+   "name": "Dropbox",
+   "aliases": [],
+   "category": "云存储",
+   "cycle": "月",
+   "typical_price": 88,
+   "cancel": "网盘设置里的「自动续费」关闭;连续包月需在到期前 24 小时操作",
+   "refund": "5 天内未使用可退,已扩容部分不退"
+  },
+  {
+   "name": "OneDrive",
+   "aliases": [],
+   "category": "云存储",
+   "cycle": "月",
+   "typical_price": 108,
+   "cancel": "网盘设置里的「自动续费」关闭;连续包月需在到期前 24 小时操作",
+   "refund": "5 天内未使用可退,已扩容部分不退"
+  },
+  {
+   "name": "坚果云",
+   "aliases": [],
+   "category": "云存储",
+   "cycle": "月",
+   "typical_price": 128,
+   "cancel": "网盘设置里的「自动续费」关闭;连续包月需在到期前 24 小时操作",
+   "refund": "5 天内未使用可退,已扩容部分不退"
+  },
+  {
+   "name": "夸克网盘",
+   "aliases": [],
+   "category": "云存储",
+   "cycle": "月",
+   "typical_price": 168,
+   "cancel": "网盘设置里的「自动续费」关闭;连续包月需在到期前 24 小时操作",
+   "refund": "5 天内未使用可退,已扩容部分不退"
+  },
+  {
+   "name": "115网盘",
+   "aliases": [],
+   "category": "云存储",
+   "cycle": "月",
+   "typical_price": 198,
+   "cancel": "网盘设置里的「自动续费」关闭;连续包月需在到期前 24 小时操作",
+   "refund": "5 天内未使用可退,已扩容部分不退"
+  },
+  {
+   "name": "pCloud",
+   "aliases": [],
+   "category": "云存储",
+   "cycle": "月",
+   "typical_price": 248,
+   "cancel": "网盘设置里的「自动续费」关闭;连续包月需在到期前 24 小时操作",
+   "refund": "5 天内未使用可退,已扩容部分不退"
+  },
+  {
+   "name": "MEGA",
+   "aliases": [],
+   "category": "云存储",
+   "cycle": "月",
+   "typical_price": 298,
+   "cancel": "网盘设置里的「自动续费」关闭;连续包月需在到期前 24 小时操作",
+   "refund": "5 天内未使用可退,已扩容部分不退"
+  },
+  {
+   "name": "ChatGPT Plus",
+   "aliases": [
+    "openai",
+    "chatgpt"
+   ],
+   "category": "AI",
+   "cycle": "月",
+   "typical_price": 15,
+   "cancel": "网页端 Billing 里 Cancel plan;年付通常不退,月付到期即停",
+   "refund": "月付按周期计费不退,年付 14 天内可申请"
+  },
+  {
+   "name": "Claude Pro",
+   "aliases": [
+    "anthropic",
+    "claude"
+   ],
+   "category": "AI",
+   "cycle": "月",
+   "typical_price": 25,
+   "cancel": "网页端 Billing 里 Cancel plan;年付通常不退,月付到期即停",
+   "refund": "月付按周期计费不退,年付 14 天内可申请"
+  },
+  {
+   "name": "Gemini Advanced",
+   "aliases": [],
+   "category": "AI",
+   "cycle": "月",
+   "typical_price": 30,
+   "cancel": "网页端 Billing 里 Cancel plan;年付通常不退,月付到期即停",
+   "refund": "月付按周期计费不退,年付 14 天内可申请"
+  },
+  {
+   "name": "Copilot Pro",
+   "aliases": [],
+   "category": "AI",
+   "cycle": "月",
+   "typical_price": 45,
+   "cancel": "网页端 Billing 里 Cancel plan;年付通常不退,月付到期即停",
+   "refund": "月付按周期计费不退,年付 14 天内可申请"
+  },
+  {
+   "name": "Midjourney",
+   "aliases": [],
+   "category": "AI",
+   "cycle": "月",
+   "typical_price": 68,
+   "cancel": "网页端 Billing 里 Cancel plan;年付通常不退,月付到期即停",
+   "refund": "月付按周期计费不退,年付 14 天内可申请"
+  },
+  {
+   "name": "Perplexity Pro",
+   "aliases": [],
+   "category": "AI",
+   "cycle": "月",
+   "typical_price": 88,
+   "cancel": "网页端 Billing 里 Cancel plan;年付通常不退,月付到期即停",
+   "refund": "月付按周期计费不退,年付 14 天内可申请"
+  },
+  {
+   "name": "DeepSeek",
+   "aliases": [],
+   "category": "AI",
+   "cycle": "月",
+   "typical_price": 108,
+   "cancel": "网页端 Billing 里 Cancel plan;年付通常不退,月付到期即停",
+   "refund": "月付按周期计费不退,年付 14 天内可申请"
+  },
+  {
+   "name": "Kimi",
+   "aliases": [],
+   "category": "AI",
+   "cycle": "月",
+   "typical_price": 128,
+   "cancel": "网页端 Billing 里 Cancel plan;年付通常不退,月付到期即停",
+   "refund": "月付按周期计费不退,年付 14 天内可申请"
+  },
+  {
+   "name": "文心一言",
+   "aliases": [],
+   "category": "AI",
+   "cycle": "月",
+   "typical_price": 168,
+   "cancel": "网页端 Billing 里 Cancel plan;年付通常不退,月付到期即停",
+   "refund": "月付按周期计费不退,年付 14 天内可申请"
+  },
+  {
+   "name": "通义千问",
+   "aliases": [],
+   "category": "AI",
+   "cycle": "月",
+   "typical_price": 198,
+   "cancel": "网页端 Billing 里 Cancel plan;年付通常不退,月付到期即停",
+   "refund": "月付按周期计费不退,年付 14 天内可申请"
+  },
+  {
+   "name": "豆包",
+   "aliases": [],
+   "category": "AI",
+   "cycle": "月",
+   "typical_price": 248,
+   "cancel": "网页端 Billing 里 Cancel plan;年付通常不退,月付到期即停",
+   "refund": "月付按周期计费不退,年付 14 天内可申请"
+  },
+  {
+   "name": "智谱清言",
+   "aliases": [],
+   "category": "AI",
+   "cycle": "月",
+   "typical_price": 298,
+   "cancel": "网页端 Billing 里 Cancel plan;年付通常不退,月付到期即停",
+   "refund": "月付按周期计费不退,年付 14 天内可申请"
+  },
+  {
+   "name": "Adobe Creative Cloud",
+   "aliases": [
+    "adobe",
+    "cc 全家桶"
+   ],
+   "category": "软件",
+   "cycle": "月",
+   "typical_price": 15,
+   "cancel": "官网账户 Subscription 页取消;团队版需管理员操作",
+   "refund": "14 天内可退,已激活席位按比例"
+  },
+  {
+   "name": "Microsoft 365",
+   "aliases": [
+    "office365",
+    "microsoft"
+   ],
+   "category": "软件",
+   "cycle": "月",
+   "typical_price": 25,
+   "cancel": "官网账户 Subscription 页取消;团队版需管理员操作",
+   "refund": "14 天内可退,已激活席位按比例"
+  },
+  {
+   "name": "WPS 会员",
+   "aliases": [
+    "wps",
+    "金山办公"
+   ],
+   "category": "软件",
+   "cycle": "月",
+   "typical_price": 30,
+   "cancel": "官网账户 Subscription 页取消;团队版需管理员操作",
+   "refund": "14 天内可退,已激活席位按比例"
+  },
+  {
+   "name": "Notion",
+   "aliases": [
+    "notion 会员"
+   ],
+   "category": "软件",
+   "cycle": "月",
+   "typical_price": 45,
+   "cancel": "官网账户 Subscription 页取消;团队版需管理员操作",
+   "refund": "14 天内可退,已激活席位按比例"
+  },
+  {
+   "name": "Evernote",
+   "aliases": [],
+   "category": "软件",
+   "cycle": "月",
+   "typical_price": 68,
+   "cancel": "官网账户 Subscription 页取消;团队版需管理员操作",
+   "refund": "14 天内可退,已激活席位按比例"
+  },
+  {
+   "name": "1Password",
+   "aliases": [
+    "1password",
+    "密码管理器"
+   ],
+   "category": "软件",
+   "cycle": "月",
+   "typical_price": 88,
+   "cancel": "官网账户 Subscription 页取消;团队版需管理员操作",
+   "refund": "14 天内可退,已激活席位按比例"
+  },
+  {
+   "name": "Setapp",
+   "aliases": [],
+   "category": "软件",
+   "cycle": "月",
+   "typical_price": 108,
+   "cancel": "官网账户 Subscription 页取消;团队版需管理员操作",
+   "refund": "14 天内可退,已激活席位按比例"
+  },
+  {
+   "name": "JetBrains",
+   "aliases": [],
+   "category": "软件",
+   "cycle": "月",
+   "typical_price": 128,
+   "cancel": "官网账户 Subscription 页取消;团队版需管理员操作",
+   "refund": "14 天内可退,已激活席位按比例"
+  },
+  {
+   "name": "Figma",
+   "aliases": [],
+   "category": "软件",
+   "cycle": "月",
+   "typical_price": 168,
+   "cancel": "官网账户 Subscription 页取消;团队版需管理员操作",
+   "refund": "14 天内可退,已激活席位按比例"
+  },
+  {
+   "name": "Canva",
+   "aliases": [],
+   "category": "软件",
+   "cycle": "月",
+   "typical_price": 198,
+   "cancel": "官网账户 Subscription 页取消;团队版需管理员操作",
+   "refund": "14 天内可退,已激活席位按比例"
+  },
+  {
+   "name": "Sketch",
+   "aliases": [],
+   "category": "软件",
+   "cycle": "月",
+   "typical_price": 248,
+   "cancel": "官网账户 Subscription 页取消;团队版需管理员操作",
+   "refund": "14 天内可退,已激活席位按比例"
+  },
+  {
+   "name": "Affinity",
+   "aliases": [],
+   "category": "软件",
+   "cycle": "月",
+   "typical_price": 298,
+   "cancel": "官网账户 Subscription 页取消;团队版需管理员操作",
+   "refund": "14 天内可退,已激活席位按比例"
+  },
+  {
+   "name": "京东PLUS",
+   "aliases": [
+    "jd plus",
+    "京东plus"
+   ],
+   "category": "会员",
+   "cycle": "年",
+   "typical_price": 15,
+   "cancel": "对应 App 的「会员-自动续费」关闭;联名卡需在发卡方渠道解约",
+   "refund": "年卡 7 天内未使用可退,已享权益按比例扣减"
+  },
+  {
+   "name": "淘宝88VIP",
+   "aliases": [
+    "88vip",
+    "淘88"
+   ],
+   "category": "会员",
+   "cycle": "年",
+   "typical_price": 25,
+   "cancel": "对应 App 的「会员-自动续费」关闭;联名卡需在发卡方渠道解约",
+   "refund": "年卡 7 天内未使用可退,已享权益按比例扣减"
+  },
+  {
+   "name": "美团会员",
+   "aliases": [],
+   "category": "会员",
+   "cycle": "年",
+   "typical_price": 30,
+   "cancel": "对应 App 的「会员-自动续费」关闭;联名卡需在发卡方渠道解约",
+   "refund": "年卡 7 天内未使用可退,已享权益按比例扣减"
+  },
+  {
+   "name": "饿了么会员",
+   "aliases": [],
+   "category": "会员",
+   "cycle": "年",
+   "typical_price": 45,
+   "cancel": "对应 App 的「会员-自动续费」关闭;联名卡需在发卡方渠道解约",
+   "refund": "年卡 7 天内未使用可退,已享权益按比例扣减"
+  },
+  {
+   "name": "盒马X会员",
+   "aliases": [],
+   "category": "会员",
+   "cycle": "年",
+   "typical_price": 68,
+   "cancel": "对应 App 的「会员-自动续费」关闭;联名卡需在发卡方渠道解约",
+   "refund": "年卡 7 天内未使用可退,已享权益按比例扣减"
+  },
+  {
+   "name": "山姆会员",
+   "aliases": [
+    "sam's club",
+    "山姆"
+   ],
+   "category": "会员",
+   "cycle": "年",
+   "typical_price": 88,
+   "cancel": "对应 App 的「会员-自动续费」关闭;联名卡需在发卡方渠道解约",
+   "refund": "年卡 7 天内未使用可退,已享权益按比例扣减"
+  },
+  {
+   "name": "Costco",
+   "aliases": [],
+   "category": "会员",
+   "cycle": "年",
+   "typical_price": 108,
+   "cancel": "对应 App 的「会员-自动续费」关闭;联名卡需在发卡方渠道解约",
+   "refund": "年卡 7 天内未使用可退,已享权益按比例扣减"
+  },
+  {
+   "name": "亚马逊Prime",
+   "aliases": [],
+   "category": "会员",
+   "cycle": "年",
+   "typical_price": 128,
+   "cancel": "对应 App 的「会员-自动续费」关闭;联名卡需在发卡方渠道解约",
+   "refund": "年卡 7 天内未使用可退,已享权益按比例扣减"
+  },
+  {
+   "name": "网易严选",
+   "aliases": [],
+   "category": "会员",
+   "cycle": "年",
+   "typical_price": 168,
+   "cancel": "对应 App 的「会员-自动续费」关闭;联名卡需在发卡方渠道解约",
+   "refund": "年卡 7 天内未使用可退,已享权益按比例扣减"
+  },
+  {
+   "name": "拼多多省钱月卡",
+   "aliases": [],
+   "category": "会员",
+   "cycle": "年",
+   "typical_price": 198,
+   "cancel": "对应 App 的「会员-自动续费」关闭;联名卡需在发卡方渠道解约",
+   "refund": "年卡 7 天内未使用可退,已享权益按比例扣减"
+  },
+  {
+   "name": "滴滴青桔",
+   "aliases": [],
+   "category": "会员",
+   "cycle": "年",
+   "typical_price": 248,
+   "cancel": "对应 App 的「会员-自动续费」关闭;联名卡需在发卡方渠道解约",
+   "refund": "年卡 7 天内未使用可退,已享权益按比例扣减"
+  },
+  {
+   "name": "哈啰骑行",
+   "aliases": [],
+   "category": "会员",
+   "cycle": "年",
+   "typical_price": 298,
+   "cancel": "对应 App 的「会员-自动续费」关闭;联名卡需在发卡方渠道解约",
+   "refund": "年卡 7 天内未使用可退,已享权益按比例扣减"
+  },
+  {
+   "name": "得到",
+   "aliases": [
+    "dedao",
+    "罗辑思维"
+   ],
+   "category": "学习",
+   "cycle": "月",
+   "typical_price": 15,
+   "cancel": "App 内「我的-订阅」取消;应用商店订阅走系统订阅管理",
+   "refund": "7 天内可退,已学课程超过 20% 不退"
+  },
+  {
+   "name": "樊登读书",
+   "aliases": [],
+   "category": "学习",
+   "cycle": "月",
+   "typical_price": 25,
+   "cancel": "App 内「我的-订阅」取消;应用商店订阅走系统订阅管理",
+   "refund": "7 天内可退,已学课程超过 20% 不退"
+  },
+  {
+   "name": "知乎盐选",
+   "aliases": [
+    "zhihu",
+    "盐选会员"
+   ],
+   "category": "学习",
+   "cycle": "月",
+   "typical_price": 30,
+   "cancel": "App 内「我的-订阅」取消;应用商店订阅走系统订阅管理",
+   "refund": "7 天内可退,已学课程超过 20% 不退"
+  },
+  {
+   "name": "Coursera Plus",
+   "aliases": [],
+   "category": "学习",
+   "cycle": "月",
+   "typical_price": 45,
+   "cancel": "App 内「我的-订阅」取消;应用商店订阅走系统订阅管理",
+   "refund": "7 天内可退,已学课程超过 20% 不退"
+  },
+  {
+   "name": "Duolingo",
+   "aliases": [],
+   "category": "学习",
+   "cycle": "月",
+   "typical_price": 68,
+   "cancel": "App 内「我的-订阅」取消;应用商店订阅走系统订阅管理",
+   "refund": "7 天内可退,已学课程超过 20% 不退"
+  },
+  {
+   "name": "多邻国",
+   "aliases": [],
+   "category": "学习",
+   "cycle": "月",
+   "typical_price": 88,
+   "cancel": "App 内「我的-订阅」取消;应用商店订阅走系统订阅管理",
+   "refund": "7 天内可退,已学课程超过 20% 不退"
+  },
+  {
+   "name": "极客时间",
+   "aliases": [],
+   "category": "学习",
+   "cycle": "月",
+   "typical_price": 108,
+   "cancel": "App 内「我的-订阅」取消;应用商店订阅走系统订阅管理",
+   "refund": "7 天内可退,已学课程超过 20% 不退"
+  },
+  {
+   "name": "慕课网",
+   "aliases": [],
+   "category": "学习",
+   "cycle": "月",
+   "typical_price": 128,
+   "cancel": "App 内「我的-订阅」取消;应用商店订阅走系统订阅管理",
+   "refund": "7 天内可退,已学课程超过 20% 不退"
+  },
+  {
+   "name": "网易云课堂",
+   "aliases": [],
+   "category": "学习",
+   "cycle": "月",
+   "typical_price": 168,
+   "cancel": "App 内「我的-订阅」取消;应用商店订阅走系统订阅管理",
+   "refund": "7 天内可退,已学课程超过 20% 不退"
+  },
+  {
+   "name": "Skillshare",
+   "aliases": [],
+   "category": "学习",
+   "cycle": "月",
+   "typical_price": 198,
+   "cancel": "App 内「我的-订阅」取消;应用商店订阅走系统订阅管理",
+   "refund": "7 天内可退,已学课程超过 20% 不退"
+  },
+  {
+   "name": "MasterClass",
+   "aliases": [],
+   "category": "学习",
+   "cycle": "月",
+   "typical_price": 248,
+   "cancel": "App 内「我的-订阅」取消;应用商店订阅走系统订阅管理",
+   "refund": "7 天内可退,已学课程超过 20% 不退"
+  },
+  {
+   "name": "Brilliant",
+   "aliases": [],
+   "category": "学习",
+   "cycle": "月",
+   "typical_price": 298,
+   "cancel": "App 内「我的-订阅」取消;应用商店订阅走系统订阅管理",
+   "refund": "7 天内可退,已学课程超过 20% 不退"
+  },
+  {
+   "name": "Keep 会员",
+   "aliases": [
+    "keep",
+    "keepland"
+   ],
+   "category": "健身",
+   "cycle": "月",
+   "typical_price": 15,
+   "cancel": "门店或 App 的「会籍管理」办理;年卡多有冷静期条款",
+   "refund": "7 天冷静期可退,已开卡按次扣"
+  },
+  {
+   "name": "乐刻",
+   "aliases": [],
+   "category": "健身",
+   "cycle": "月",
+   "typical_price": 25,
+   "cancel": "门店或 App 的「会籍管理」办理;年卡多有冷静期条款",
+   "refund": "7 天冷静期可退,已开卡按次扣"
+  },
+  {
+   "name": "超级猩猩",
+   "aliases": [],
+   "category": "健身",
+   "cycle": "月",
+   "typical_price": 30,
+   "cancel": "门店或 App 的「会籍管理」办理;年卡多有冷静期条款",
+   "refund": "7 天冷静期可退,已开卡按次扣"
+  },
+  {
+   "name": "Peloton",
+   "aliases": [],
+   "category": "健身",
+   "cycle": "月",
+   "typical_price": 45,
+   "cancel": "门店或 App 的「会籍管理」办理;年卡多有冷静期条款",
+   "refund": "7 天冷静期可退,已开卡按次扣"
+  },
+  {
+   "name": "Strava",
+   "aliases": [],
+   "category": "健身",
+   "cycle": "月",
+   "typical_price": 68,
+   "cancel": "门店或 App 的「会籍管理」办理;年卡多有冷静期条款",
+   "refund": "7 天冷静期可退,已开卡按次扣"
+  },
+  {
+   "name": "Nike Training Club",
+   "aliases": [],
+   "category": "健身",
+   "cycle": "月",
+   "typical_price": 88,
+   "cancel": "门店或 App 的「会籍管理」办理;年卡多有冷静期条款",
+   "refund": "7 天冷静期可退,已开卡按次扣"
+  },
+  {
+   "name": "薄荷健康",
+   "aliases": [],
+   "category": "健身",
+   "cycle": "月",
+   "typical_price": 108,
+   "cancel": "门店或 App 的「会籍管理」办理;年卡多有冷静期条款",
+   "refund": "7 天冷静期可退,已开卡按次扣"
+  },
+  {
+   "name": "咕咚",
+   "aliases": [],
+   "category": "健身",
+   "cycle": "月",
+   "typical_price": 128,
+   "cancel": "门店或 App 的「会籍管理」办理;年卡多有冷静期条款",
+   "refund": "7 天冷静期可退,已开卡按次扣"
+  },
+  {
+   "name": "悦跑圈",
+   "aliases": [],
+   "category": "健身",
+   "cycle": "月",
+   "typical_price": 168,
+   "cancel": "门店或 App 的「会籍管理」办理;年卡多有冷静期条款",
+   "refund": "7 天冷静期可退,已开卡按次扣"
+  },
+  {
+   "name": "Fitbit Premium",
+   "aliases": [],
+   "category": "健身",
+   "cycle": "月",
+   "typical_price": 198,
+   "cancel": "门店或 App 的「会籍管理」办理;年卡多有冷静期条款",
+   "refund": "7 天冷静期可退,已开卡按次扣"
+  },
+  {
+   "name": "Apple Fitness+",
+   "aliases": [],
+   "category": "健身",
+   "cycle": "月",
+   "typical_price": 248,
+   "cancel": "门店或 App 的「会籍管理」办理;年卡多有冷静期条款",
+   "refund": "7 天冷静期可退,已开卡按次扣"
+  },
+  {
+   "name": "ClassPass",
+   "aliases": [],
+   "category": "健身",
+   "cycle": "月",
+   "typical_price": 298,
+   "cancel": "门店或 App 的「会籍管理」办理;年卡多有冷静期条款",
+   "refund": "7 天冷静期可退,已开卡按次扣"
+  },
+  {
+   "name": "财新",
+   "aliases": [
+    "caixin"
+   ],
+   "category": "新闻",
+   "cycle": "月",
+   "typical_price": 15,
+   "cancel": "网页端账户 Subscription 取消;部分支持邮件申请",
+   "refund": "7 天内可退,已阅读付费内容不退"
+  },
+  {
+   "name": "华尔街见闻",
+   "aliases": [
+    "wallstreetcn",
+    "见闻"
+   ],
+   "category": "新闻",
+   "cycle": "月",
+   "typical_price": 25,
+   "cancel": "网页端账户 Subscription 取消;部分支持邮件申请",
+   "refund": "7 天内可退,已阅读付费内容不退"
+  },
+  {
+   "name": "36氪",
+   "aliases": [],
+   "category": "新闻",
+   "cycle": "月",
+   "typical_price": 30,
+   "cancel": "网页端账户 Subscription 取消;部分支持邮件申请",
+   "refund": "7 天内可退,已阅读付费内容不退"
+  },
+  {
+   "name": "The Information",
+   "aliases": [],
+   "category": "新闻",
+   "cycle": "月",
+   "typical_price": 45,
+   "cancel": "网页端账户 Subscription 取消;部分支持邮件申请",
+   "refund": "7 天内可退,已阅读付费内容不退"
+  },
+  {
+   "name": "NYT",
+   "aliases": [],
+   "category": "新闻",
+   "cycle": "月",
+   "typical_price": 68,
+   "cancel": "网页端账户 Subscription 取消;部分支持邮件申请",
+   "refund": "7 天内可退,已阅读付费内容不退"
+  },
+  {
+   "name": "WSJ",
+   "aliases": [],
+   "category": "新闻",
+   "cycle": "月",
+   "typical_price": 88,
+   "cancel": "网页端账户 Subscription 取消;部分支持邮件申请",
+   "refund": "7 天内可退,已阅读付费内容不退"
+  },
+  {
+   "name": "Economist",
+   "aliases": [],
+   "category": "新闻",
+   "cycle": "月",
+   "typical_price": 108,
+   "cancel": "网页端账户 Subscription 取消;部分支持邮件申请",
+   "refund": "7 天内可退,已阅读付费内容不退"
+  },
+  {
+   "name": "Bloomberg",
+   "aliases": [],
+   "category": "新闻",
+   "cycle": "月",
+   "typical_price": 128,
+   "cancel": "网页端账户 Subscription 取消;部分支持邮件申请",
+   "refund": "7 天内可退,已阅读付费内容不退"
+  },
+  {
+   "name": "FT",
+   "aliases": [],
+   "category": "新闻",
+   "cycle": "月",
+   "typical_price": 168,
+   "cancel": "网页端账户 Subscription 取消;部分支持邮件申请",
+   "refund": "7 天内可退,已阅读付费内容不退"
+  },
+  {
+   "name": "界面新闻",
+   "aliases": [],
+   "category": "新闻",
+   "cycle": "月",
+   "typical_price": 198,
+   "cancel": "网页端账户 Subscription 取消;部分支持邮件申请",
+   "refund": "7 天内可退,已阅读付费内容不退"
+  },
+  {
+   "name": "虎嗅",
+   "aliases": [],
+   "category": "新闻",
+   "cycle": "月",
+   "typical_price": 248,
+   "cancel": "网页端账户 Subscription 取消;部分支持邮件申请",
+   "refund": "7 天内可退,已阅读付费内容不退"
+  },
+  {
+   "name": "钛媒体",
+   "aliases": [],
+   "category": "新闻",
+   "cycle": "月",
+   "typical_price": 298,
+   "cancel": "网页端账户 Subscription 取消;部分支持邮件申请",
+   "refund": "7 天内可退,已阅读付费内容不退"
+  },
+  {
+   "name": "Steam",
+   "aliases": [
+    "蒸汽平台"
+   ],
+   "category": "游戏",
+   "cycle": "月",
+   "typical_price": 15,
+   "cancel": "平台账户的订阅管理取消;主机订阅在系统设置里关闭",
+   "refund": "虚拟商品一般不可退,未消费点数可申请"
+  },
+  {
+   "name": "PlayStation Plus",
+   "aliases": [
+    "ps plus",
+    "psn"
+   ],
+   "category": "游戏",
+   "cycle": "月",
+   "typical_price": 25,
+   "cancel": "平台账户的订阅管理取消;主机订阅在系统设置里关闭",
+   "refund": "虚拟商品一般不可退,未消费点数可申请"
+  },
+  {
+   "name": "Xbox Game Pass",
+   "aliases": [
+    "xgp",
+    "game pass"
+   ],
+   "category": "游戏",
+   "cycle": "月",
+   "typical_price": 30,
+   "cancel": "平台账户的订阅管理取消;主机订阅在系统设置里关闭",
+   "refund": "虚拟商品一般不可退,未消费点数可申请"
+  },
+  {
+   "name": "Nintendo Switch Online",
+   "aliases": [],
+   "category": "游戏",
+   "cycle": "月",
+   "typical_price": 45,
+   "cancel": "平台账户的订阅管理取消;主机订阅在系统设置里关闭",
+   "refund": "虚拟商品一般不可退,未消费点数可申请"
+  },
+  {
+   "name": "EA Play",
+   "aliases": [],
+   "category": "游戏",
+   "cycle": "月",
+   "typical_price": 68,
+   "cancel": "平台账户的订阅管理取消;主机订阅在系统设置里关闭",
+   "refund": "虚拟商品一般不可退,未消费点数可申请"
+  },
+  {
+   "name": "Ubisoft+",
+   "aliases": [],
+   "category": "游戏",
+   "cycle": "月",
+   "typical_price": 88,
+   "cancel": "平台账户的订阅管理取消;主机订阅在系统设置里关闭",
+   "refund": "虚拟商品一般不可退,未消费点数可申请"
+  },
+  {
+   "name": "Epic",
+   "aliases": [],
+   "category": "游戏",
+   "cycle": "月",
+   "typical_price": 108,
+   "cancel": "平台账户的订阅管理取消;主机订阅在系统设置里关闭",
+   "refund": "虚拟商品一般不可退,未消费点数可申请"
+  },
+  {
+   "name": "GOG",
+   "aliases": [],
+   "category": "游戏",
+   "cycle": "月",
+   "typical_price": 128,
+   "cancel": "平台账户的订阅管理取消;主机订阅在系统设置里关闭",
+   "refund": "虚拟商品一般不可退,未消费点数可申请"
+  },
+  {
+   "name": "原神",
+   "aliases": [],
+   "category": "游戏",
+   "cycle": "月",
+   "typical_price": 168,
+   "cancel": "平台账户的订阅管理取消;主机订阅在系统设置里关闭",
+   "refund": "虚拟商品一般不可退,未消费点数可申请"
+  },
+  {
+   "name": "崩坏：星穹铁道",
+   "aliases": [],
+   "category": "游戏",
+   "cycle": "月",
+   "typical_price": 198,
+   "cancel": "平台账户的订阅管理取消;主机订阅在系统设置里关闭",
+   "refund": "虚拟商品一般不可退,未消费点数可申请"
+  },
+  {
+   "name": "王者荣耀",
+   "aliases": [],
+   "category": "游戏",
+   "cycle": "月",
+   "typical_price": 248,
+   "cancel": "平台账户的订阅管理取消;主机订阅在系统设置里关闭",
+   "refund": "虚拟商品一般不可退,未消费点数可申请"
+  },
+  {
+   "name": "和平精英",
+   "aliases": [],
+   "category": "游戏",
+   "cycle": "月",
+   "typical_price": 298,
+   "cancel": "平台账户的订阅管理取消;主机订阅在系统设置里关闭",
+   "refund": "虚拟商品一般不可退,未消费点数可申请"
+  }
+ ]
+}
