@@ -14,10 +14,11 @@ Subscription accounting is hard because the same service appears under several n
 
 - 🔎 **120-merchant normalisation** — 爱奇艺 / iQiyi / 奇艺 and 腾讯视频 / Tencent Video resolve to one entry, across video, music, cloud storage, AI, software, memberships, learning, fitness, news and games
 - 📅 **Cycle and annualisation** — monthly ×12, quarterly ×4, half-year ×2, yearly ×1; same merchant with different amounts is flagged separately
+- 🧾 **Real bills parse** — thousands separators in `¥1,288.00`, Chinese dates like `2026年11月3日`, and storage digits inside `iCloud+ 200G ¥6` are not mistaken for amounts; one-off purchases (top-ups, lifetime licences) are booked separately and never annualised ×12
 - 🗓 **Renewal dates that hold** — periods are added with `calendar.monthrange`, so Jan 31 monthly lands on Feb 28, and Feb 29 yearly lands on Feb 28 next year
 - 🔁 **Duplicate detection** — three video memberships or two cloud drives are grouped with their combined annual cost
-- ✂️ **Cut order** — with monthly usage counts it computes cost per use; the less you use and the more it costs a year, the earlier it appears
-- ↩️ **Refund window** — remaining days from the merchant's refund rule, with a warning when only 3 days are left
+- ✂️ **Cut order** — with monthly usage counts it computes cost per use; a merchant you say you use 0 times jumps to the top
+- ↩️ **Refund window** — remaining days from the merchant's refund rule, with a warning when only 3 days are left; merchants that say "non-refundable" get no false hope
 - 🔒 **Amounts stay local** — ledger, annualisation and totals are computed locally; any amount in model prose is replaced, never rewritten
 
 ## 🚀 Quick start
@@ -38,7 +39,27 @@ Docker:
 ```bash
 docker build -t dingyue .
 docker run -p 8000:8000 dingyue
+
+# or use the published image (0.1.0 is pinned, 0.1 / latest follow the newest build)
+docker run --rm -p 8000:8000 ghcr.io/wushiyi105-jpg/dingyue:0.1.0
 ```
+
+### 📂 Real bill examples
+
+The four files under `examples/` are copied from real sources (an iPhone subscriptions page, an Alipay annual statement, a promo page's fine print, a WeChat auto-debit list). `examples/out/` holds the actual runs, with the command on the first line and the run date on the second:
+
+```bash
+python -m dingyue --mock scan --file examples/case-04.txt --uses 酷狗音乐:0 --uses 咪咕视频:2
+```
+
+| File | Source | What it broke | Result |
+|---|---|---|---|
+| `case-01.txt` | iPhone subscriptions page | `iCloud+ 200G ¥6.00` — the 200 was read as the amount | 4 subscriptions, 912/yr; iCloud+ booked at 6/month |
+| `case-02.txt` | Alipay annual statement (yearly fees) | `¥1,288.00` read as 1 yuan | 4 items, 2623/yr; Sam's Club booked at 1288 |
+| `case-03.txt` | Promo page fine print | "first month 9.9, then 25/month" and "7-day free trial" taken as the regular price | 3 items, 960/yr; annualised at the regular 25/30, with a note |
+| `case-04.txt` | WeChat auto-debit list | one-off top-up annualised ×12; "non-refundable" treated as refundable; 0 uses treated as unfilled | 3 subscriptions 768 + 1 one-off 30; Kugou with 0 uses tops the cut list, Steam marked non-refundable |
+
+These four files are the regression material: storage digits, Chinese dates, thousands separators, first-month promos, one-offs, non-refundable, zero uses — each one has a test.
 
 ## 🤔 Why not just ask a general LLM
 
@@ -176,7 +197,12 @@ dingyue/
 python -m unittest discover tests -v
 ```
 
-30 tests: normalisation and aliases, five cycle inferences, month-end and leap-year clamping, bill parsing, unknown merchants skipped, annual totals, duplicates and amount mismatches, cost per use, cut order, refund windows, offline shape and amount replacement. CI runs on 3.10/3.11/3.12.
+72 tests, all offline and dependency-free:
+
+- **53 unit tests** — normalisation and aliases, five cycle inferences, month-end and leap-year clamping, bill parsing, unknown merchants skipped, annual totals, duplicates and amount mismatches, cost per use, cut order, refund windows, offline shape and amount replacement, plus seven regression groups: amount greediness, thousands separators, first-month promos and trials, one-off purchases, non-refundable merchants, zero uses, string usage counts.
+- **19 integration tests** — a real `ThreadingHTTPServer` over HTTP (200/404 and persistence), the model layer using a fake model that speaks this repo's `summary/advice/risks` schema with amount stripping, and the CLI through subprocesses asserting exit codes 0/2 and stderr.
+
+CI runs on 3.10/3.11/3.12 and also builds the image (pushed to GHCR on tags).
 
 ## 👤 Author
 

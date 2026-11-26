@@ -26,22 +26,28 @@ PROMPT = """你是订阅账单顾问。下面是程序已经算好的台账、�
 """
 
 
-def analyze(text, uses=None, force_mock=False):
+def analyze(text, uses=None, force_mock=False, config=None):
     base = rules.analyze(text, uses)
-    if force_mock or not llm.default_config().get("api_key"):
+    cfg = {**llm.default_config(), **(config or {})}
+    if force_mock or not cfg.get("api_key"):
         draft = mock.draft(base)
         mode = "offline"
     else:
         try:
             payload = json.dumps({
-                "count": base["count"], "total": base["total"],
-                "rows": [{k: r[k] for k in ("merchant", "category", "cycle", "annual", "next")}
+                "count": base["count"],
+                "subscription_count": base.get("subscription_count", base["count"]),
+                "one_off_count": base.get("one_off_count", 0),
+                "one_off_total": base.get("one_off_total", 0),
+                "total": base["total"],
+                "rows": [{k: r[k] for k in ("merchant", "category", "cycle", "annual", "next", "flags")}
                          for r in base["rows"]],
                 "duplicates": base["duplicates"],
-                "cut": [{"merchant": c["merchant"], "annual": c["annual"], "per_use": c["per_use"]}
-                        for c in base["cut"]],
+                "no_refund": [r["merchant"] for r in base["refunds"] if not r["open"] and r["days"] == 0],
+                "cut": [{"merchant": c["merchant"], "annual": c["annual"], "per_use": c["per_use"],
+                         "uses": c["uses"]} for c in base["cut"]],
             }, ensure_ascii=False, indent=2)
-            raw = llm.chat([{"role": "user", "content": PROMPT % payload}])
+            raw = llm.chat([{"role": "user", "content": PROMPT % payload}], config=cfg)
             draft = llm.extract_json(raw)
             mode = "model"
         except Exception as e:

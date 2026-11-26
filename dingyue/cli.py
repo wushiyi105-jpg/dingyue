@@ -14,9 +14,20 @@ BANNER = ("⚠️  当前为离线模式(未配置 LLM_API_KEY):归一年化、�
 
 
 def _text(args):
+    """读 --file 时兜住 IO 错误:文件不存在不该给用户一段 Traceback。"""
     if args.file:
-        with open(args.file, encoding="utf-8") as f:
-            return f.read()
+        try:
+            with open(args.file, encoding="utf-8") as f:
+                return f.read()
+        except FileNotFoundError:
+            print("❌ 读不到文件:%s" % args.file, file=sys.stderr)
+            sys.exit(2)
+        except UnicodeDecodeError:
+            print("❌ 文件编码不是 UTF-8:%s(用记事本另存为 UTF-8 再试)" % args.file, file=sys.stderr)
+            sys.exit(2)
+        except OSError as e:
+            print("❌ 读文件失败:%s(%s)" % (args.file, e), file=sys.stderr)
+            sys.exit(2)
     if args.text:
         return args.text
     if not sys.stdin.isatty():
@@ -39,16 +50,27 @@ def _uses(args):
 def render(r):
     mode = "模型" if r["mode"] == "model" else "离线模式"
     lines = ["💳 订阅台账  [%s]" % mode, "",
-             "共 %d 项,年化 %s 元(约每月 %s 元)"
-             % (r["count"], r["total"], round(r["total"] / 12, 2) if r["count"] else 0), ""]
+             "共 %d 项订阅,年化 %s 元(约每月 %s 元)"
+             % (r.get("subscription_count", r["count"]), r["total"],
+                round(r["total"] / 12, 2) if r["count"] else 0)]
+    if r.get("one_off_count"):
+        lines.append("另有 %d 笔一次性支出 %s 元,不计入年化" % (r["one_off_count"], r["one_off_total"]))
+    lines.append("")
     lines.append("| # | 商户 | 类别 | 金额 | 周期 | 年化 | 下次续费 |")
     lines.append("|---|---|---|---|---|---|---|")
     for i, x in enumerate(r["rows"], 1):
         lines.append("| %d | %s | %s | %s | %s | %s | %s |"
-                     % (i, x["merchant"], x["category"], x["amount"], x["cycle"], x["annual"], x["next"]))
+                     % (i, x["merchant"], x["category"], x["amount"], x["cycle"], x["annual"],
+                        x["next"] or "—"))
     if not r["rows"]:
         lines.append("| — | 未识别 | — | — | — | — | — |")
     lines.append("")
+    fl = [f for f in r.get("flags") or [] if f["notes"]]
+    if fl:
+        lines.append("📝 解析说明")
+        for f in fl:
+            lines.append("  · %s:%s" % (f["merchant"], ";".join(f["notes"])))
+        lines.append("")
     if r["duplicates"]:
         lines.append("🔁 重复订阅")
         for d in r["duplicates"]:
@@ -61,18 +83,28 @@ def render(r):
         lines.append("")
     lines.append("✂️ 砍单顺序")
     for i, c in enumerate(r["cut"], 1):
-        cpu = ("单次 %.2f 元" % c["per_use"]) if c["per_use"] is not None else "未填使用次数"
+        if c.get("zero_use"):
+            cpu = "一次都没用,直接砍"
+        elif c["per_use"] is not None:
+            cpu = "单次 %.2f 元" % c["per_use"]
+        else:
+            cpu = "未填使用次数"
         lines.append("  %d. %s —— 年化 %s,月用 %s 次,%s"
-                     % (i, c["merchant"], c["annual"], c["uses"] if c["uses"] else "—", cpu))
+                     % (i, c["merchant"], c["annual"],
+                        "0" if c.get("zero_use") else (c["uses"] if c["uses"] is not None else "—"),
+                        cpu))
         lines.append("     取消:%s" % c["cancel"])
     if not r["cut"]:
         lines.append("  · 无")
     lines.append("")
     refunds = [x for x in r["refunds"] if x["open"]]
-    if refunds:
+    closed = [x for x in r["refunds"] if not x["open"] and x.get("note")]
+    if refunds or closed:
         lines.append("↩️ 退款窗口")
         for x in refunds:
             lines.append("  · %s:购买后 %d 天,还剩 %d 天" % (x["merchant"], x["days"], x["left"]))
+        for x in closed:
+            lines.append("  ❌ %s:%s" % (x["merchant"], x["note"]))
         lines.append("")
     lines.append("🧭 判断")
     lines.append("  " + (r["summary"] or "—"))
@@ -92,13 +124,25 @@ def cmd_scan(args):
         print("❌ 没有账单内容:每行「日期 商户 金额 [周期]」。", file=sys.stderr)
         sys.exit(2)
     db.use(args.db)
-    r = agent.analyze(text, _uses(args), force_mock=args.mock)
+    r = agent.analyze(text, _uses(args), force_mock=args.mock, config=_cfg(args))
     if args.save:
         r["saved_id"] = db.save(r)
     if args.json:
         print(json.dumps(r, ensure_ascii=False, indent=2))
         return
     print(render(r))
+
+
+def _cfg(args):
+    """--api-key / --model / --base-url 必须真的传到模型层,否则传了等于没传。"""
+    out = {}
+    if getattr(args, "api_key", None):
+        out["api_key"] = args.api_key
+    if getattr(args, "model", None):
+        out["model"] = args.model
+    if getattr(args, "base_url", None):
+        out["base_url"] = args.base_url
+    return out or None
 
 
 def cmd_merchant(args):
@@ -113,9 +157,9 @@ def cmd_merchant(args):
 
 
 def cmd_next(args):
-    rows = rules.parse_bill(_text(args))
+    rows = [r for r in rules.parse_bill(_text(args)) if r["next"]]
     if not rows:
-        print("没有识别到订阅。")
+        print("没有需要续费的订阅(一次性支出不进续费日历)。")
         return
     print("📅 续费日历")
     for r in sorted(rows, key=lambda x: x["next"]):
@@ -138,7 +182,8 @@ def cmd_history(args):
 
 def cmd_web(args):
     from . import web
-    web.serve(host=args.host, port=args.port, db_path=args.db, force_mock=args.mock)
+    web.serve(host=args.host, port=args.port, db_path=args.db, force_mock=args.mock,
+              config=_cfg(args))
 
 
 def build_parser():

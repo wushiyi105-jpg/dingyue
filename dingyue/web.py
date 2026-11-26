@@ -64,12 +64,16 @@ $('#btn').onclick=async()=>{
       body:JSON.stringify({text:$('#text').value})});
     const r=await p.json(); if(r.error) throw new Error(r.error);
     let h='<div class="card"><div class="hint">'+(r.mode==='model'?'模型已连接':'离线模式')+'</div>';
-    h+='<p><span class="big">'+r.total+'</span> 元/年 · '+r.count+' 项 · 约每月 '+Math.round(r.total/12)+' 元</p>';
+    h+='<p><span class="big">'+r.total+'</span> 元/年 · '+(r.subscription_count??r.count)+' 项订阅 · 约每月 '+Math.round(r.total/12)+' 元</p>';
+    if(r.one_off_count){h+='<div class="hint">另有 '+r.one_off_count+' 笔一次性支出 '+r.one_off_total+' 元,不计入年化</div>';}
     h+='<h3>台账</h3><table><tr><th>商户</th><th>类别</th><th>金额</th><th>周期</th><th>年化</th><th>下次</th></tr>';
-    r.rows.forEach(x=>{h+='<tr><td>'+esc(x.merchant)+'</td><td>'+esc(x.category)+'</td><td>'+x.amount+'</td><td>'+esc(x.cycle)+'</td><td>'+x.annual+'</td><td>'+esc(x.next)+'</td></tr>';});
+    r.rows.forEach(x=>{h+='<tr><td>'+esc(x.merchant)+'</td><td>'+esc(x.category)+'</td><td>'+x.amount+'</td><td>'+esc(x.cycle)+'</td><td>'+x.annual+'</td><td>'+esc(x.next||'—')+'</td></tr>';});
     h+='</table>';
+    if((r.flags||[]).length){h+='<h3>解析说明</h3><ul>';r.flags.forEach(f=>{h+='<li>'+esc(f.merchant)+':'+esc(f.notes.join(';'))+'</li>';});h+='</ul>';}
     if(r.duplicates.length){h+='<h3>重复订阅</h3>';r.duplicates.forEach(d=>{h+='<div class="warn">🔁 '+esc(d.category)+':'+esc(d.items.join('、'))+' —— 年化 '+d.annual+' 元</div>';});}
-    h+='<h3>砍单顺序</h3><ul>';r.cut.forEach(c=>{h+='<li>'+esc(c.merchant)+' · 年化 '+c.annual+' · '+(c.per_use!=null?'单次 '+c.per_use+' 元':'未填使用次数')+'<div class="hint">'+esc(c.cancel)+'</div></li>';});h+='</ul>';
+    h+='<h3>砍单顺序</h3><ul>';r.cut.forEach(c=>{const u=c.zero_use?'每月 0 次,直接砍':(c.per_use!=null?'单次 '+c.per_use+' 元':'未填使用次数');h+='<li>'+esc(c.merchant)+' · 年化 '+c.annual+' · '+u+'<div class="hint">'+esc(c.cancel)+'</div></li>';});h+='</ul>';
+    const rf=(r.refunds||[]).filter(x=>x.open||x.note);
+    if(rf.length){h+='<h3>退款窗口</h3><ul>';rf.forEach(x=>{h+='<li class="'+(x.open?'':'bad')+'">'+esc(x.merchant)+':'+(x.open?('还剩 '+x.left+' 天'):esc(x.note||'已过窗口'))+'</li>';});h+='</ul>';}
     h+='<h3>判断</h3><p>'+esc(r.summary)+'</p><ul>';r.advice.forEach(a=>h+='<li>'+esc(a)+'</li>');h+='</ul>';
     if(r.risks.length){h+='<h3>风险</h3><ul>';r.risks.forEach(x=>h+='<li class="bad">'+esc(x)+'</li>');h+='</ul>';}
     h+='</div>';el.innerHTML=h;
@@ -121,13 +125,21 @@ def _handler(cfg, force_mock, db_path):
 
         def do_POST(self):
             if urlparse(self.path).path != "/api/scan":
+                # 先把请求体吃掉再回 404:留着不读就关连接,Windows 上会发 RST,
+                # 客户端可能在读到响应前就收到「连接被重置」。
+                try:
+                    left = int(self.headers.get("Content-Length", 0) or 0)
+                    if left:
+                        self.rfile.read(left)
+                except (OSError, ValueError):
+                    pass
                 self._json({"error": "not found"}, 404)
                 return
             try:
                 body = self._read()
                 db.use(db_path)
                 uses = body.get("uses") or {}
-                r = agent.analyze(body.get("text", ""), uses, force_mock=force_mock)
+                r = agent.analyze(body.get("text", ""), uses, force_mock=force_mock, config=cfg)
                 if body.get("save", True):
                     r["saved_id"] = db.save(r)
                 self._json(r)
@@ -142,8 +154,8 @@ def _handler(cfg, force_mock, db_path):
     return Handler
 
 
-def serve(host="127.0.0.1", port=8000, db_path=None, force_mock=False):
-    cfg = llm.default_config()
+def serve(host="127.0.0.1", port=8000, db_path=None, force_mock=False, config=None):
+    cfg = {**llm.default_config(), **(config or {})}
     httpd = ThreadingHTTPServer((host, port), _handler(cfg, force_mock, db_path))
     mode = "离线模式(未配置 key)" if (force_mock or not cfg.get("api_key")) else "模型:%s" % cfg.get("model")
     print("💳 订阅已启动:http://%s:%s  [%s]" % (host, port, mode))

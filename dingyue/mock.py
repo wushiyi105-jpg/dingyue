@@ -4,7 +4,9 @@
 def advice(base):
     out = []
     for c in base["cut"][:3]:
-        if c["per_use"] is not None:
+        if c.get("zero_use"):
+            out.append("%s 年花 %s 元,你自己填的是每月 0 次 —— 这个直接砍。" % (c["merchant"], c["annual"]))
+        elif c["per_use"] is not None:
             out.append("%s 年花 %s 元,每月用 %s 次,单次约 %s 元 —— 先看它。"
                        % (c["merchant"], c["annual"], c["uses"], c["per_use"]))
         else:
@@ -24,6 +26,10 @@ def risks(base):
                    % (len(base["duplicates"]), sum(d["annual"] for d in base["duplicates"])))
     if base["inconsistent"]:
         out.append("同一商户出现不同扣费金额,可能有涨价或套餐变更,建议核对。")
+    closed = [r for r in base["refunds"] if not r["open"] and r["days"] == 0]
+    if closed:
+        out.append("%s 写明不可退,反悔时没有退款窗口,续费前先想清楚。"
+                   % "、".join(x["merchant"] for x in closed))
     if not base["rows"]:
         out.append("没识别出订阅:确认每行带商户名与金额,或先用 --help 看格式。")
     open_refunds = [r for r in base["refunds"] if r["open"] and r["left"] <= 3]
@@ -34,5 +40,7 @@ def risks(base):
 
 
 def draft(base):
-    return {"summary": "共识别 %d 项订阅,年化 %s 元。" % (base["count"], base["total"]),
-            "advice": advice(base), "risks": risks(base)}
+    summary = "共 %d 项订阅,年化 %s 元。" % (base.get("subscription_count", base["count"]), base["total"])
+    if base.get("one_off_count"):
+        summary += "另有 %d 笔一次性支出 %s 元,不计入年化。" % (base["one_off_count"], base["one_off_total"])
+    return {"summary": summary, "advice": advice(base), "risks": risks(base)}
