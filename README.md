@@ -211,7 +211,7 @@ CI 在 3.10/3.11/3.12 上跑,并额外构建镜像(打 tag 时推 GHCR)。
 
 ## 👤 作者
 
-shiyi · GitHub [@wushiyi105-jpg](https://github.com/wushiyi105-jpg) · [wushiyi105@gmail.com](mailto:wushiyi105@gmail.com)
+小米 · 17612850106
 
 ## 📄 License
 
