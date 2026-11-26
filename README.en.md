@@ -40,7 +40,7 @@ docker build -t dingyue .
 docker run -p 8000:8000 dingyue
 ```
 
-## 🤔 Why not just ask a model
+## 🤔 Why not just ask a general LLM
 
 A general model says "you have too many subscriptions, cut the unused ones". It cannot compute what you pay a year, and it cannot order renewal dates. Four differences:
 

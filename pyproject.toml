@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "dingyue"
 version = "0.1.0"
-description = "订阅台账 Agent —— 识别、年化、重复检测、砍单顺序"
+description = "订阅 · 账单体检 · 识别、年化、重复检测、砍单顺序"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 

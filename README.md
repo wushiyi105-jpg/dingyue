@@ -40,7 +40,7 @@ docker build -t dingyue .
 docker run -p 8000:8000 dingyue
 ```
 
-## 🤔 为什么不能直接问模型
+## 🤔 为什么不用通用大模型直接问
 
 通用模型会说「你订阅有点多,建议砍掉不常用的」。它算不出你一年到底付了多少,也排不出下次续费日。差别在四点:
 
@@ -105,7 +105,7 @@ python -m dingyue --json scan --file bill.txt
 python -m dingyue --mock scan --file bill.txt
 ```
 
-## 🔌 模型配置
+## 🔌 模型接入
 
 兼容 **OpenAI `/chat/completions`** 的任意服务:
 
@@ -182,6 +182,6 @@ python -m unittest discover tests -v
 
 shiyi · GitHub [@wushiyi105-jpg](https://github.com/wushiyi105-jpg) · [wushiyi105@gmail.com](mailto:wushiyi105@gmail.com)
 
-## 📄 许可
+## 📄 License
 
 [MIT](./LICENSE)
