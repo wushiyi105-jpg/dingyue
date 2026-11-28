@@ -12,7 +12,7 @@ PAGE = """<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>订阅 · 账单体检</title>
+<title>订阅 · 未来30天还要扣多少</title>
 <style>
   :root{--bg:#f7f8fb;--card:#fff;--ink:#1f2937;--muted:#6b7280;--accent:#3f4b9b;--soft:#e8ebfa;
         --line:#e5e7ef;--red:#b42318;--green:#067647;--amber:#b54708;--radius:16px}
@@ -37,14 +37,77 @@ PAGE = """<!doctype html>
   .big{font-size:22px;font-weight:700}
   ul{margin:6px 0 0 18px;padding:0}li{margin:6px 0;font-size:14px}
   .warn{color:var(--amber)}.bad{color:var(--red)}.ok{color:var(--green)}
+
+:root{--maxw:960px;--bg:#fbf5d9;--card:#fffdf0;--ink:#1b1b18;--text:#1b1b18;--dim:#6f6a55;--line:#ddd2a7;--accent:#c65a3f;--muted:#6f6a55}
+.wrap{max-width:960px}
+body{background:#fbf5d9;color:#1b1b18;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+h1{color:#1b1b18}
+header{max-width:960px;margin:0 auto}
+input,textarea,select{background:#fff;color:#1b1b18;border-color:#ddd2a7;border-radius:2px}
+button:not(.ghost):not(.tab){background:#c65a3f;color:#fff;border-radius:2px}
+button.ghost{background:transparent!important;color:#c65a3f!important;border:1px solid #ddd2a7!important}
+h2,h3{color:#c65a3f}
+pre{background:#fafaf6;color:#1b1b18;border-color:#ddd2a7}
+.item,.card{border-color:#ddd2a7;background:#fffdf0}
+.k,.empty,.hint{color:#6f6a55}
+
+h1{font-size:clamp(31px,5vw,39px);line-height:1.26}
+.prod{display:block;font-size:11px;line-height:1.4;letter-spacing:.18em;font-weight:650;margin-bottom:8px;opacity:.72}
+.lede,.sub{max-width:62ch;line-height:1.75}
+.route{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin:16px auto 20px;border:1px solid var(--line);background:var(--line);max-width:var(--maxw)}
+.route span{padding:11px 13px;background:var(--card);font-size:12px;line-height:1.5}
+.route b{display:block;font-size:10px;letter-spacing:.1em;margin-bottom:3px;opacity:.66}
+button{min-height:46px}
+input,select{min-height:44px}
+pre{white-space:pre-wrap}
+@media(max-width:680px){
+  .wrap{padding:20px 16px 56px}
+  .route{grid-template-columns:1fr}
+  h1{font-size:30px!important}
+  .row>div{min-width:100%!important}
+  button{width:100%}
+}
+
+header{padding:8px 0 20px;border-bottom:2px solid #1b1b18}
+header h1{font-size:39px;line-height:1.24;letter-spacing:-.025em;font-weight:800}
+header p{color:#746d55;font-size:14px}
+.card{background:#fffdf0;border:1px solid #ddd2a7;border-radius:2px;box-shadow:none}
+button{background:#c65a3f;border-radius:2px;letter-spacing:.04em}
+button:hover{background:#ad4b33}
+input,textarea,select{background:#fffef8;border-color:#d8cc9f;border-radius:2px;font-variant-numeric:tabular-nums}
+input:focus,textarea:focus,select:focus{border-color:#c65a3f;box-shadow:0 0 0 2px #efd8cd}
+.cost .cell,.cell{border-color:#ddd2a7;border-radius:2px}
+.cost .cell b,.cell b,.big{font-family:"Cascadia Mono",Consolas,monospace;font-variant-numeric:tabular-nums}
+.item{border-left:3px solid #c65a3f}
+h3{color:#a8452f}
+
+
+/* mobile-32 */
+
+@media(max-width:760px){
+  main{grid-template-columns:1fr!important}
+  aside{border-right:0!important;border-bottom:1px solid #ddd2a7;width:auto!important}
+  section{padding:16px!important}
+  .row{flex-wrap:wrap!important}
+  .row>div{min-width:100%!important}
+  h1{font-size:30px!important}
+  .route{grid-template-columns:1fr!important}
+  button{min-height:48px}
+  pre{overflow-x:auto}
+}
+
+/* mobile-height */
+@media(max-width:760px){main{min-height:auto!important}aside{min-height:0!important}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <h1>订阅 · 账单体检<span class="badge" id="badge">…</span></h1>
-    <p>把账单糊进来:你到底在为什么付钱,一年多少钱,先砍哪个。</p>
+    <h1><span class="prod">订阅</span>未来 30 天，还要扣多少 <span class="badge" id="badge">…</span></h1>
+    <p class="lede">给有多张卡和多种订阅周期的人：导入交易后，把疑似续费交给你确认，折算月均、列出下一扣费日和取消入口。</p>
   </header>
+  <div class="route" aria-label="任务步骤"><span><b>01</b>贴账单交易</span><span><b>02</b>折月均与扣费日</span><span><b>03</b>处理要取消的</span></div>
+
   <div class="card">
     <label>账单 / 扣费记录(每行:日期 商户 金额 周期)</label>
     <textarea id="text" rows="8" placeholder="2026-10-03 爱奇艺 25 连续包月&#10;2026-10-05 腾讯视频 30 每月&#10;2026-09-20 百度网盘 30 连续包月&#10;2026-01-08 京东PLUS 198 年费"></textarea>
